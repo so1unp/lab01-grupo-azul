@@ -35,19 +35,7 @@ int main(int argc, char *argv[])
         output[index++] = input[i];
     }
 
-    printf("OUTPUT:\n%s", output);
-    
-    // Guardado en file output.txt
-    FILE *txt = fopen("output.txt", "w+"); 
-
-    if(txt == NULL) {
-        perror("Error opening file");
-        return 1;
-    }
-
-    fwrite(output, 1, strlen(output), txt);
-
-    fclose(txt);
+    fwrite(output, 1, totalChar*8, stdout);
 
     // Termina la ejecución del programa.
     exit(EXIT_SUCCESS);
