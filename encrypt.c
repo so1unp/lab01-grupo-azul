@@ -8,6 +8,7 @@ int main(int argc, char *argv[])
     // Agregar código aquí.
     srand(time(NULL));
 
+    // Posible cambio
     char input[1024];
     input[0] = '\0';
 
