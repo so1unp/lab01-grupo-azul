@@ -6,29 +6,30 @@
 int main(int argc, char *argv[])
 {
     // Agregar código aquí.
-    if(argc <= 1) {
-        exit(EXIT_FAILURE);
-    }
-
     srand(time(NULL));
 
+    char input[1024];
+    input[0] = '\0';
+
     size_t totalChar = 0;
-    for(int i = 1; i < argc; i++) {
-        totalChar += strlen(argv[i]);
+    if(argc > 1) {
+        for(int i = 1; i < argc; i++) {
+            for (int j = 0; argv[i][j] != '\0'; j++) {
+                input[totalChar++] = argv[i][j];
+            }
+        }
+    } else {
+        int c;
+        while((c = getchar()) != EOF) {
+            input[totalChar++] = (char)c;
+        }
     }
 
-    char input[totalChar + 1];
-    char output[totalChar*8 + 1];
-
-    input[0] = '\0';
+    char output[totalChar * 8 + 1];
     output[0] = '\0';
 
-    for(int i = 1; i < argc; i++) {
-        strcat(input, argv[i]);
-    }
-
     int index = 0;
-    for(int i = 0; i < (int)strlen(input); i++) {
+    for(int i = 0; i < (int)totalChar; i++) {
         for(int j = 0; j < 7; j++) {
             output[index++] = (char)(rand() % 256);
         }
