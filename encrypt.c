@@ -7,11 +7,6 @@
 int main(int argc, char *argv[])
 {
     // Agregar código aquí.
-    if(argc <= 1) {
-        perror("No se proporcionaron argumentos");
-        exit(EXIT_FAILURE);
-    }
-
     unsigned int seed = (unsigned int)time(NULL);
     srand(seed);
 
