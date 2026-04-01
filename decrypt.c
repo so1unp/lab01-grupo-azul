@@ -4,7 +4,7 @@
 
 #define BLOCK_SIZE 8
 
-int main(int argc, char *argv[])
+int main()
 {
     unsigned char buffer[BLOCK_SIZE];
     ssize_t bytes_read;

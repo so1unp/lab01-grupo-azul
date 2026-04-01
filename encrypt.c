@@ -6,7 +6,12 @@
 int main(int argc, char *argv[])
 {
     // Agregar código aquí.
-    srand(time(NULL));
+    if(argc <= 1) {
+        exit(EXIT_FAILURE);
+    }
+
+    unsigned int seed = (unsigned int)time(NULL);
+    srand(seed);
 
     // Posible cambio
     char input[1024];
