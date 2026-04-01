@@ -2,11 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <unistd.h>
 
 int main(int argc, char *argv[])
 {
     // Agregar código aquí.
     if(argc <= 1) {
+        perror("No se proporcionaron argumentos");
         exit(EXIT_FAILURE);
     }
 
@@ -42,7 +44,10 @@ int main(int argc, char *argv[])
         output[index++] = input[i];
     }
 
-    fwrite(output, 1, totalChar*8, stdout);
+    if(write(STDOUT_FILENO, output, totalChar*8) == -1) {
+        perror("write");
+        exit(EXIT_FAILURE);
+    }
 
     // Termina la ejecución del programa.
     exit(EXIT_SUCCESS);
